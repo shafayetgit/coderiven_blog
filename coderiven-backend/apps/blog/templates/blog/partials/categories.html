@@ -1,0 +1,11 @@
+<div class="p-4 bg-white rounded">
+  <h4 class="fst-italic">Categories</h4>
+  <nav class="nav flex-column">
+    {% for item in categories %}
+    <a class="nav-link" href="{% url 'blog:post-list-by-category' item.pk %}"
+      >{{ item.name }}
+      <span class="text-danger">({{ item.posts.count }})</span></a
+    >
+    {% endfor %}
+  </nav>
+</div>

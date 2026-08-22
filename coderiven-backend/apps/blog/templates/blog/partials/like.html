@@ -1,0 +1,25 @@
+<div
+  data-toggle="tooltip"
+  data-placement="top"
+  title="{% if not user.is_authenticated %}Please login first to like{% endif %}"
+>
+  <form
+    hx-post="{% url 'blog:post-like-or-dislike' post.pk %}"
+    hx-target="this"
+    hx-swap="outerHTML"
+  >
+    {% csrf_token %}
+    <button
+      class="btn {{ user.is_authenticated|yesno:',disabled' }}"
+      type="submit"
+      style="box-shadow: none !important; border:none"
+    >
+      {% if user and post|user_has_liked_post:user %}
+      <i class="fas fa-heart fa-md text-danger"></i>
+      {% else %}
+      <i class="fas fa-heart fa-md text-secondary"></i>
+      {% endif %}
+    </button>
+    <span class="ml-2">{{ post.total_likes }} </span>
+  </form>
+</div>

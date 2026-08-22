@@ -1,0 +1,26 @@
+body {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+.top-nav{
+   background-color:  #fff;
+}
+pre{
+  max-height: 600px;
+}
+
+.code-blog{
+  font-size: 25px;
+}
+/* #menu-item li a{
+  color: #6c757d;
+} */
+.active-item{
+  color: #dc3545 !important;
+}
+
+
+.icon-btn{
+  box-shadow: none !important; 
+  border:none !important;
+}

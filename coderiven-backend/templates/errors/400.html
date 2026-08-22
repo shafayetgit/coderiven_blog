@@ -1,0 +1,19 @@
+{% extends 'errors/base_error.html' %}
+
+{% block title %} 400 Bad Request {% endblock %}
+
+{% block content %}
+  <h1>400</h1>
+  <p>Whoops! Your browser made a request that this server couldn't understand.</p>
+  <p>If you believe this is an error, please contact the website administrator.</p>
+
+  <p>
+    This could be due to a typo in the URL, an invalid request parameter, or a problem with your browser's cookies or cache.
+  </p>
+  <ul>
+    <li>Try double-checking the web address for errors.</li>
+    <li>Clear your browser's cache and cookies, then try again.</li>
+    <li>If the problem persists, please <a href="mailto:shafayetbs@gmail.com">contact us</a> for assistance.</li> 
+  </ul>
+{% endblock %}
+

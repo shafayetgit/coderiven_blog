@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row g-5">
+  <div class="col-md-8">
+      <div class="row mb-2">
+        {% for post in posts %}
+        <div class="col-md-12" hx-target="this" hx-swap="outerHTML">
+          <div
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+              <div class="border-bottom mb-1 p-1 d-flex justify-content-between align-items-center">
+                <div>
+                  <img src="{% static 'img/about-pic.jpg' %}" alt="mdo" width="32"
+                    height="32" class="rounded-circle">
+
+                  <strong class="d-inline-block mb-2 text-primary"> {{ post.created_by.username|title }} </strong>
+                  <span class="mb-1 text-muted"> | {{ post.created_at|date:"d-m-Y" }} </span>
+                  <span class="mb-1 text-muted"> | Reading time: {{ post.content|reading_time }}</span>
+
+                </div>
+              </div>
+              <!-- Post Tags  -->
+              {% include 'blog/partials/tags.html' %}
+              <!-- ./Post Tags  -->
+
+              <article class="blog-post">
+                <h3 class="mb-1"> {{ post.title }} </h3>
+                <p>
+                  {{ post.summary }}
+                  <a href="{{ post.get_absolute_url }}">Continue reading</a>
+                </p>
+              </article>
+            </div>
+
+            <!-- Like and Comment Section -->
+            <div class="d-flex justify-content-around p-3 bg-light">
+              <!-- Like  -->
+              {% include 'blog/partials/like.html' %}
+              <!-- Comment  -->
+             <div data-toggle="tooltip" data-placement="top" title="{% if not user.is_authenticated %}Please login first to comment{% endif %}">
+              <a href="{{ post.get_absolute_url }}#comment-section" class="{% if not user.is_authenticated %}btn disabled{% endif %}" style="border:none">
+                <i class="fas fa-comment-alt fa-md text-secondary"></i></a>
+                {% include 'blog/partials/comment-count.html' %}
+             </div>
+            </div>
+            <!-- ./Like and Comment Section -->
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% include 'blog/partials/pagination.html' %}
+  </div>
+  
+  <div class="col-md-4">
+    <div class="position-sticky" style="top: 2rem;">
+      {% include 'blog/partials/categories.html' %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

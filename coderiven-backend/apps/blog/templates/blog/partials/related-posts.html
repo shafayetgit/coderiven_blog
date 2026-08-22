@@ -1,0 +1,23 @@
+<section class="p-4">
+    <div class="container-fluid">
+        <header class="text-center mb-2">
+            <h3 class="text-uppercase d-inline">Related Posts</h3>
+        </header>
+
+        <div class="related-posts">
+            <!-- Related Posts-->
+            {% for post in post.related_posts.all %}
+                <div class="card mx-2">
+                    <div class="card-body">
+                        <h3 class="h5">
+                            {{ post.title }}
+                        </h3>
+                        <a href="{{ post.get_absolute_url }}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            {% empty %}
+                <h1 class="text-center text-muted">Sorry, no related post found.</h1>
+            {% endfor %}
+        </div>
+    </div>
+</section>

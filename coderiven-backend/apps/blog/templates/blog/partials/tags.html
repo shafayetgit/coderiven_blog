@@ -1,0 +1,5 @@
+<div class="text-end">
+    {% for tag in post.tags.all %}
+    <a href="{% url 'blog:post-list-by-tag' tag.slug %}"><span class="badge bg-secondary">{{ tag.slug }}</span></a>
+    {% endfor %}
+  </div>

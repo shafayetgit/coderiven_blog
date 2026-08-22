@@ -1,0 +1,26 @@
+<div class="card mb-2" markdown="1">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <span>HTML</span>
+    <button class="btn icon-btn js-copy-btn" data-copy-id="1">
+      <i class="fa-regular fa-clipboard fa-xl"></i>
+        <span class="notification" style="display: none;">Copied!</span>
+    </button>
+  </div>
+  <div class="p-2 copy" data-copy-id="1">
+
+
+```html
+# I am some html code
+<ol>
+    <li><strong>Open the <code>:::card</code> block with the title:</strong> <code>:::card Card Title</code></li>
+    <li><strong>Write your Python code block:</strong> Use triple backticks
+    (<code>) to start and end the Python code block. Ensure that you properly close the code block with three backticks (</code>)
+    after the code.</li>
+    <li><strong>Close the <code>:::card</code> block:</strong> End the block with <code>:::endcard</code>.</li>
+</ol>
+```
+
+  </div>
+</div>
+
+=============================================================================================

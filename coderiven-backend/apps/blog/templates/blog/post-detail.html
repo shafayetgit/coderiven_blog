@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/css/code.css' %}">
+<link rel="stylesheet" href="{% static 'blog/css/ccode.css' %}">
+{% endblock css %}
+{% block content %}
+<div class="row g-0 border rounded overflow-hidden flex-md-row  shadow-sm h-md-250 position-relative bg-white">
+  <div class="col p-4 d-flex flex-column position-static">
+    <div class="border-bottom mb-1 p-1 d-flex justify-content-between align-items-center">
+      <div>
+        <img src="{% static 'img/about-pic.jpg' %}" alt="mdo" width="32" height="32" class="rounded-circle">
+        <strong class="d-inline-block mb-2 text-primary"> {{ post.created_by.username|title }} </strong>
+        <span class="mb-1 text-muted"> | {{ post.created_at|date:"d-m-Y" }} </span>
+        <span class="mb-1 text-muted"> | Reading time: {{ post.content|reading_time }}</span>
+      </div>
+    </div>
+
+    <!-- Post Tags  -->
+    {% include 'blog/partials/tags.html' %}
+    <!-- ./Post Tags  -->
+
+    <article class="blog-post">
+      <h3 class="mb-1"> {{ post.title }} </h3>
+      <p>{{ post.summary }}</p>
+
+      <div class="card-text mb-auto">
+        {{ post.content|render_markdown }}
+      </div>
+
+    </article>
+  </div>
+
+  <!-- Like and Comment Section -->
+  <div class="d-flex justify-content-around p-3 bg-light">
+    {% include 'blog/partials/like.html' %}
+    <div data-toggle="tooltip" data-placement="top"
+      title="{% if not user.is_authenticated %}Please login first to comment{% endif %}">
+      <a class="{% if not user.is_authenticated %}btn disabled{% endif %}" href="#comment-section" style="border:none">
+        <i class="fas fa-comment-alt fa-md text-secondary"></i></a>
+      {% include 'blog/partials/comment-count.html' %}
+    </div>
+  </div>
+  <!-- ./Like and Comment Section -->
+
+  <!-- Comment form  -->
+  <div class="col-md-12" id="comment-section">
+    {% include 'blog/partials/comment-form.html' %}
+  </div>
+</div>
+
+<div class="col-md-12">
+  {% include 'blog/partials/related-posts.html' %}
+</div>
+
+
+
+{% if post.comments.all %}
+<div class="shadow-sm p-4 col-lg-12 col-sm-6" style="background: #eee;">
+  {% for comment in post.get_comments %}
+  <div class="row" hx-target="this" hx-swap="afterend">
+    <div class="col-12 border-start border-primary mb-4 border-3 ">
+      <div>
+        <img src="{% static 'img/about-pic.jpg' %}" alt="mdo" width="32" height="32" class="rounded-circle">
+        <strong class="d-inline-block mb-2 text-primary"> {{ comment.user.first_name }} </strong>
+        <span class="mb-1 text-muted"> | {{ post.created_at|date:'d-m-Y' }} </span>
+      </div>
+      <p class="m-0">{{comment.content|render_markdown}}</p>
+      {% comment %}
+      <a class="" data-bs-toggle="collapse" href="#comment-{{comment.id}}" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        <i class="fas fa-reply"></i>
+      </a>
+      {% endcomment %}
+    </div> <!-- ./ col -->
+  </div> <!--  ./ row -->
+  {% endfor %}
+</div> <!-- ./shadow -->
+{% endif %}
+{% endblock %}
+
+<!-- Page-wise Js -->
+{% block js %}
+<script src="{% static 'blog/js/clipboard.js' %}"></script>
+<script src="{% static 'blog/js/ccode.js' %}"></script>
+{% endblock js %}

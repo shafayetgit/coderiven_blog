@@ -1,0 +1,7 @@
+-r base.txt
+
+Faker
+django-debug-toolbar
+whitenoise
+django_compressor
+uvicorn

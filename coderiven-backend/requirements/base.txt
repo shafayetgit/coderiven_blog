@@ -1,0 +1,14 @@
+django
+django-ninja
+django-ninja-jwt
+django-cors-headers
+pillow
+django-extensions
+python-decouple
+ipython
+markdown
+Pygments
+whitenoise
+pymemcache
+readtime
+django-mptt

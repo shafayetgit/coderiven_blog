@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="row g-0 border bg-white rounded overflow-hidden  flex-md-column mb-4 shadow-sm h-md-250">
+            <div class="row">
+                <div class="col-auto  d-lg-block mx-auto">
+                    <div class="mt-5">
+                        <img 
+                        src="{% static 'img/about-pic.jpg' %}"
+                        height="250"
+                        class="rounded border border-secondary"
+                        alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col p-4 d-flex flex-column position-static" style="text-align: justify">
+                    <h3 class="mb-4"><span class="border-bottom border-secondary">About</span></h3>
+                    <p class="card-text mb-auto">
+                        Hi, he is Mohammad Shafayet Haydar, everyone calls him Shafayet. 
+                        He is a software developer and researcher. 
+                        In his leisure time, he writes coding-related articles on Coderiven.
+                    </p>
+                    <br>
+                    <p class="card-text mb-auto fst-italic">
+                        -
+                    </p>
+                    <p class="card-text mb-auto fst-italic">
+                        Happy Coding!
+                    </p>
+                    <p class="card-text mb-auto fst-italic">
+                        Mohammad Shafayet Haydar
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center p-2">
+                    <a href="https://web.facebook.com/Shafayetbs/" target="blank"><i class="fab fa-facebook fa-lg"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}

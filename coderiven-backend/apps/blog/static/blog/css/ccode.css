@@ -1,0 +1,53 @@
+.codehilite {
+    background: #f3f3f3;
+    /* border-left: 3px solid blue; */
+    padding: 0em 10px 0.0em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    /* margin-bottom: 1rem; */
+    /* padding: 10px; */
+    border-radius: 5px;
+    /* margin-bottom: 1rem; */
+}
+
+pre {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+    font-size: .875em;
+}
+
+/* Table Design  */
+
+/* Base table styling like Bootstrap's .table */
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Add borders to all sides of the table and cells like Bootstrap's .table-bordered */
+table,
+table th,
+table td {
+    border: 1px solid #dee2e6;
+}
+
+/* Table header styling */
+thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+
+/* Table Design - end  */
