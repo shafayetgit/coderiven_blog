@@ -54,6 +54,9 @@ lerna-debug.log*
 .env
 .env.*
 *.env
+firebase.html
+**/firebase.html
+
 
 # IDE & Editor files
 .vscode/
