@@ -56,6 +56,8 @@ lerna-debug.log*
 *.env
 firebase.html
 **/firebase.html
+firebase-messaging-sw.js
+**/firebase-messaging-sw.js
 
 
 # IDE & Editor files
